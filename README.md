@@ -958,8 +958,3 @@ If you find this project interesting, consider giving the repository a ⭐ on Gi
 
 ---
 
-## 📜 License
-
-This project is intended for educational, portfolio, and demonstration purposes.
-
-Add an appropriate open-source license before distributing the project commercially.

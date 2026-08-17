@@ -8,8 +8,6 @@ Instead of generating a simple user story from a prompt, StoryPilot AI uses a co
 
 The platform consolidates these specialized outputs into a single structured user story containing acceptance criteria, business analysis, technical analysis, risks, estimation, test scenarios, and traceability.
 
----
-
 ## 🎯 Project Objective
 
 Software requirements often need to be analyzed by multiple stakeholders before they are ready for development and testing.
@@ -186,7 +184,6 @@ Performs quality evaluation of the generated story and identifies areas requirin
 
 Combines outputs from the specialized agents into one structured user story.
 
----
 
 # 🧠 Agentic AI Workflow
 
@@ -218,7 +215,6 @@ Final Structured Output
 
 This architecture allows the system to simulate a collaborative software engineering workflow.
 
----
 
 # 📋 Generated User Story Structure
 
@@ -308,7 +304,6 @@ Test Cases
 
 This provides end-to-end requirement traceability.
 
----
 
 # 🧪 QA and Test Coverage
 
@@ -333,7 +328,6 @@ Depending on requirement complexity, generated scenarios can include:
 | Workflow      | Multi-stage approval        |
 | Expiry        | Automatic access revocation |
 
----
 
 # 🏗️ Technical Architecture
 

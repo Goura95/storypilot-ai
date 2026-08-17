@@ -1,26 +1,435 @@
 @import "tailwindcss";
 
+/* =========================================================
+   STORYPILOT AI - GLOBAL DESIGN SYSTEM
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --secondary: #a855f7;
+  --accent: #22d3ee;
+
+  --card: #0f172a;
+  --card-light: #111c33;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --muted: #94a3b8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(99, 102, 241, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(168, 85, 247, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(34, 211, 238, 0.05),
+      transparent 35%
+    ),
+    #020617;
+
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(99, 102, 241, 0.45);
+  color: white;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #6366f1,
+    #a855f7
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #818cf8,
+    #c084fc
+  );
+}
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #818cf8 0%,
+    #c084fc 45%,
+    #22d3ee 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   GRADIENT BUTTON
+   ========================================================= */
+
+.gradient-button {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #7c3aed,
+    #2563eb
+  );
+
+  box-shadow:
+    0 10px 30px rgba(79, 70, 229, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 40px rgba(99, 102, 241, 0.4);
+
+  filter: brightness(1.08);
+}
+
+/* =========================================================
+   GLASS CARD
+   ========================================================= */
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   GLOW
+   ========================================================= */
+
+.glow-indigo {
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.18);
+}
+
+.glow-purple {
+  box-shadow:
+    0 0 40px rgba(168, 85, 247, 0.18);
+}
+
+.glow-cyan {
+  box-shadow:
+    0 0 40px rgba(34, 211, 238, 0.15);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+
+  animation:
+    gradientMove 6s ease infinite;
+}
+
+/* =========================================================
+   DASHBOARD BACKGROUND
+   ========================================================= */
+
+.dashboard-background {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(99, 102, 241, 0.1),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(168, 85, 247, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 90%,
+      rgba(34, 211, 238, 0.06),
+      transparent 25%
+    ),
+    #020617;
+}
+
+/* =========================================================
+   DASHBOARD SIDEBAR
+   ========================================================= */
+
+.sidebar-glass {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.95),
+      rgba(2, 6, 23, 0.98)
+    );
+
+  border-right:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* =========================================================
+   SIDEBAR ACTIVE ITEM
+   ========================================================= */
+
+.sidebar-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(99, 102, 241, 0.22),
+      rgba(168, 85, 247, 0.12)
+    );
+
+  border:
+    1px solid rgba(129, 140, 248, 0.2);
+
+  color: #c7d2fe;
+
+  box-shadow:
+    inset 3px 0 0 #818cf8,
+    0 8px 30px rgba(79, 70, 229, 0.08);
+}
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.95),
+      rgba(15, 23, 42, 0.7)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(129, 140, 248, 0.2);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.storypilot-input {
+  width: 100%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(2, 6, 23, 0.65);
+
+  color: white;
+
+  border-radius: 12px;
+
+  padding:
+    12px 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.storypilot-input::placeholder {
+  color: #64748b;
+}
+
+.storypilot-input:focus {
+  border-color:
+    rgba(129, 140, 248, 0.6);
+
+  background:
+    rgba(15, 23, 42, 0.9);
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .dashboard-card {
+    border-radius: 14px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline:
+    2px solid rgba(129, 140, 248, 0.8);
+
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
